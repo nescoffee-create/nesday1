@@ -55,14 +55,8 @@
                 <mxCell id="26" value="&lt;span style=&quot;color: rgb(0, 0, 0); white-space: normal;&quot;&gt;main_home_dart&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
                     <mxGeometry x="480" y="-10" width="110" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" value="" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.split_action_bar;fillColor=#E6E6E6;" vertex="1" parent="1">
-                    <mxGeometry x="450" y="70" width="185" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="28" value="Split" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.anchor;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="27">
-                    <mxGeometry width="185" height="12.857142857142856" as="geometry"/>
-                </mxCell>
-                <mxCell id="29" value="Action" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.anchor;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="27">
-                    <mxGeometry y="17.142857142857142" width="185" height="12.857142857142856" as="geometry"/>
+                <mxCell id="30" value="" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.action_bar;fillColor=#E6E6E6;strokeColor=#c0c0c0;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="447.5" y="60" width="182.5" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
