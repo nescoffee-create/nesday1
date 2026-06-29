@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vydDsM6t9r-OuVbA1YG2" name="Page-1">
-        <mxGraphModel dx="832" dy="1587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="438" dy="1543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -57,6 +57,15 @@
                 </mxCell>
                 <mxCell id="30" value="" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.android.action_bar;fillColor=#E6E6E6;strokeColor=#c0c0c0;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="447.5" y="60" width="182.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="-450" width="200" height="390" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="MatertailApp" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="-460" width="180" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="State" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="580" y="-420" width="180" height="310" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
