@@ -2,14 +2,21 @@
 import 'package:flutter/material.dart';
 
 class FormWiget extends StatelessWidget {
-  const FormWiget({Key? key, this.hint, this.suffixIcon}) : super(key: key);
+  const FormWiget({
+    Key? key,
+    this.hint,
+    this.suffixIcon,
+    this.obscureText,
+  }) : super(key: key);
 
   final String? hint;
   final Widget? suffixIcon;
+  final bool? obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText ?? false,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         hintText: hint,
