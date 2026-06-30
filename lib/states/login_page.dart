@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nesday1/cores/app_constant.dart';
 import 'package:nesday1/cores/app_controller.dart';
+import 'package:nesday1/cores/app_service.dart';
+import 'package:nesday1/widgets/button_wiget.dart';
 import 'package:nesday1/widgets/form_wiget.dart';
 import 'package:nesday1/widgets/image_wiget.dart';
 
@@ -16,6 +18,11 @@ class _LoginPageState extends State<LoginPage> {
   AppController appController = Get.put(
     AppController(),
   ); //นี่คือ instance ของ AppController และนำไปใช้ใน login page
+
+  final formKey = GlobalKey<FormState>();
+
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,36 +49,72 @@ class _LoginPageState extends State<LoginPage> {
 
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 32),
-                  child: Column(
-                    children: [
-                      FormWiget(
-                        hint: 'Username',
-                        suffixIcon: Icon(Icons.person_outline),
-                      ),
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      children: [
+                        FormWiget(
+                          controller: usernameController,
+                          hint: 'Username',
+                          suffixIcon: Icon(Icons.person_outline),
+                          validator: (p0) {
+                            if (p0?.isEmpty ?? true) {
+                              return 'please fill username';
+                            } else {
+                              return null;
+                            }
+                          },
+                        ),
 
-                      SizedBox(height: 16),
+                        SizedBox(height: 16),
 
-                      Obx(
-                        () => FormWiget(
-                          obscureText: appController.redEye.value,
-                          hint: 'Password',
-                          suffixIcon: IconButton(
-                            onPressed: () {
-
-                              appController.redEye.value = !appController.redEye.value;
-
-
+                        Obx(
+                          () => FormWiget(
+                            controller: passwordController,
+                            validator: (p0) {
+                              if (p0?.isEmpty ?? true) {
+                                return 'please fill password';
+                              } else {
+                                return null;
+                              }
                             },
-                            icon: Icon(appController.redEye.value ? Icons.remove_red_eye : Icons.remove_red_eye_outlined), //ตาเปิดปิด
 
+                            obscureText: appController.redEye.value,
+                            hint: 'Password',
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                appController.redEye.value =
+                                    !appController.redEye.value;
+                              },
+                              icon: Icon(
+                                appController.redEye.value
+                                    ? Icons.remove_red_eye
+                                    : Icons.remove_red_eye_outlined,
+                              ), //ตาเปิดปิด
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
 
-                Text('button login'),
+                SizedBox(height: 16),
+
+                SizedBox(
+                  width: Get.width * 0.8,
+                  child: ButtonWiget(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        AppService().checkLogin(
+                          username: usernameController.text,
+                          password: passwordController.text,
+                        );
+                      }
+                    },
+                    text: 'Login',
+                  ),
+                ),
               ],
             ),
           ],
