@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (formKey.currentState!.validate()) {
                         AppService().checkLogin(
                           username: usernameController.text,
-                          password: passwordController.text,
+                          password: passwordController.text, context: context,
                         );
                       }
                     },
