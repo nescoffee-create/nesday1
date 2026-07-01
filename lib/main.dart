@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nesday1/cores/app_http_override.dart';
 import 'package:nesday1/states/login_page.dart';
 
 
-void main(){
+Future<void> main() async {
+
+  HttpOverrides.global = AppHttpOverride();
 
   runApp(MyApp());
 }
