@@ -73,10 +73,11 @@ class AssignBody extends StatelessWidget {
                       children: [
                         ButtonWiget(
                           onPressed: () {
-
-                            Get.to(DetailAssignCode(assignCode: assignCodemodels[index].AssignCode));
-
-
+                            Get.to(
+                              DetailAssignCode(
+                                assignCode: assignCodemodels[index].AssignCode,
+                              ),
+                            );
                           },
                           text: 'More Detail',
                           type: GFButtonType.outline,
