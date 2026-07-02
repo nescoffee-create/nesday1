@@ -2,18 +2,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+
 import 'package:nesday1/cores/app_constant.dart';
 import 'package:nesday1/cores/app_service.dart';
 import 'package:nesday1/models/assign_code_model.dart';
-
 import 'package:nesday1/models/user_model.dart';
 import 'package:nesday1/states/detail_assign_code.dart';
 import 'package:nesday1/widgets/button_wiget.dart';
 
 class AssignBody extends StatelessWidget {
-  const AssignBody({Key? key, required this.userModel}) : super(key: key);
+  const AssignBody({
+    Key? key,
+    required this.userModel,
+    required this.cookieHeader,
+  }) : super(key: key);
 
   final UserModel userModel;
+  final String cookieHeader;
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +81,7 @@ class AssignBody extends StatelessWidget {
                             Get.to(
                               DetailAssignCode(
                                 assignCode: assignCodemodels[index].AssignCode,
+                                cookieHeader: cookieHeader,
                               ),
                             );
                           },

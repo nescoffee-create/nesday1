@@ -7,13 +7,40 @@ import 'package:nesday1/models/user_model.dart';
 import 'package:nesday1/states/main_home.dart';
 
 class AppService {
-
-  Future<List<BuildingCodeModel>> findBuildList({required String assignCode}) async {
-
+  Future<List<BuildingCodeModel>> findBuildList({
+    required String assignCode,
+    required String cookieHeader,
+  }) async {
     List<BuildingCodeModel> buildingCodemodels = [];
 
-    return buildingCodemodels;
+    String urlAPI = 'https://tns.nso.go.th/hh70/API/building_list.php';
 
+    dio.Dio objectDio = dio.Dio();
+
+    var response = await objectDio.request(
+      '$urlAPI?assign_code=$assignCode',
+      options: dio.Options(method: 'GET', headers: {'Cookie': cookieHeader}),
+    );
+    debugPrint('status ===> ${response.statusCode}');
+    debugPrint('response ===> ${response.toString()}');
+
+    if (response.data['data'].isEmpty) {
+
+      return [];
+
+    } else {
+
+      for (var element in response.data['data']) {
+
+        BuildingCodeModel model = BuildingCodeModel.fromMap(element);
+        buildingCodemodels.add(model);
+        
+      }
+      return buildingCodemodels;
+      
+    }
+
+    
   }
 
   Future<List<AssignCodeModel>> findListAssignCodeModel({
@@ -49,13 +76,22 @@ class AppService {
         data: dio.FormData.fromMap(body),
       );
 
-      debugPrint('response ===> ${response.toString()}');
+      final cookies = response.headers['set-cookie'];
+      debugPrint('cookies ===> $cookies');
+
+      List<String> trueCookies = <String>[];
+
+      for (var element in cookies!) {
+        trueCookies.add(element.split(';').first);
+      }
+      debugPrint('## truecookies ===> $trueCookies');
+
+      final cookieHeader = trueCookies.join('; ');
+      debugPrint('## cookiesHeader ===> $cookieHeader');
 
       UserModel userModel = UserModel.fromMap(response.data['data']);
 
-      debugPrint('AssignCode ===> ${userModel.AssignCodes}');
-
-      Get.offAll(MainHome(userModel: userModel));
+      Get.offAll(MainHome(userModel: userModel, cookieHeader: cookieHeader));
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
